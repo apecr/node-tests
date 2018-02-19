@@ -1,6 +1,9 @@
+const add = (a, b) => a + b;
+const square = x => x * x;
+
 module.exports = {
-  add: (a, b) => a + b,
-  square: x => x * x,
+  add,
+  square,
   setName: (user, fullName) => {
     // Set first name and last Nama
     const outUser = Object.assign({}, user);
@@ -12,5 +15,15 @@ module.exports = {
       }
     });
     return outUser;
+  },
+  asyncAdd: (a, b, callback) => {
+    setTimeout(() => {
+      callback(add(a, b));
+    }, 1000);
+  },
+  asyncSquare: (x, callback) => {
+    setTimeout(() => {
+      callback(square(x));
+    }, 1000);
   }
 };
